@@ -1,3 +1,7 @@
 # autoUpload13ij
 针对智慧专利港湾商家管理后台自动上传图片以及专利信息
 需要火狐浏览器，以及火狐浏览器对应的webdriver，详见本账户autoConnectWHUSTU项目
+
+
+
+大范围使用了Firefox下的插件Katalon Recorder. 能够对浏览器操作进行录制导出为python2代码。建议客制化调试时使用本插件。
