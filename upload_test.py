@@ -19,6 +19,10 @@ ncols = table.ncols #列数
 
 #不同大学程序差异在于 分类三次点击 图标选择的id 用户名密码 .XLSX文件存放位置
 #不同电脑之间，四张图片存放的位置不同，需要重新编译exe
+
+
+#下面的executable_path地址是在docs.seleniumhq.org/download/ 下载了火狐浏览器的webdriver之后解压存放exe的地址，项目内的zip也可解压直接用
+#我想你也可以使用chrome浏览器,即使用chromewebdriver（然后"稍微"debug一下下）
 driver = webdriver.Firefox(executable_path = 'I:\Downloads\geckodriver-v0.24.0-win64\geckodriver.exe')
 driver.get("http://patentbusiness.13ij.net/account/login.htm;jsessionid=040D4C5FE9C730550E49AC2699FACB5B")
 driver.find_element_by_id("mobile").clear()
