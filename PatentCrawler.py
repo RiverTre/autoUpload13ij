@@ -23,10 +23,10 @@ time.sleep(5)
 driver.find_element_by_link_text(u"请登录").click()
 driver.find_element_by_id("j_username").click()
 driver.find_element_by_id("j_username").clear()
-driver.find_element_by_id("j_username").send_keys("1111123")
+driver.find_element_by_id("j_username").send_keys("aizhuairen123")
 driver.find_element_by_id("j_password_show").click()
 driver.find_element_by_id("j_password_show").clear()
-driver.find_element_by_id("j_password_show").send_keys("11111123")
+driver.find_element_by_id("j_password_show").send_keys("aizhuairen123")
 driver.find_element_by_id("j_validation_code").click()
 validation = input("手动识别验证吧")
 driver.find_element_by_id("j_validation_code").clear()
@@ -77,9 +77,15 @@ while total < 70000:
 
         new_worksheet.write(i + rows_old, 0, item_b.text)  # 追加写入数据，注意是从i+rows_old行开始写入,第0列写专利名
         new_worksheet.write(i + rows_old, 1, items_number[i].get('pn'))  # 公开号
-        new_worksheet.write(i + rows_old, 2, items_abview[i].text)  # 摘要
+        try:
+            new_worksheet.write(i + rows_old, 2, items_abview[i].text)  # 摘要
+        except:
+            continue
         new_worksheet.write(i + rows_old, 3, proposer[i].text)  # 申请人
-        new_worksheet.write(i + rows_old, 4, e)  # IPC
+        try:
+            new_worksheet.write(i + rows_old, 4, e)  # IPC
+        except:
+            continue
     new_workbook.save(path)  # 保存工作簿
 
     # 点击下一页
