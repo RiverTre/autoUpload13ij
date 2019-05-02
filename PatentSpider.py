@@ -17,8 +17,8 @@ from xlutils.copy import copy
 
 # 新建一个xls用来存数据
 excel = xlwt.Workbook(encoding='utf-8')  # 创建一个Excel
-sheet = excel.add_sheet('Sheet1')  # 在其中创建一个名为hello的sheet
-path = 'C:\\data5.xls'    # 每次运行都更改以避免覆盖上一轮数据
+sheet = excel.add_sheet('Sheet1')  # 在其中创建一个sheet
+path = 'C:\\data5.xls'    # 每次运行都要更改以避免覆盖上一轮数据
 excel.save(path)
 
 
