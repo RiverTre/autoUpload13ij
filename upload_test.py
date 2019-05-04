@@ -50,7 +50,7 @@ for i in range(nrows):  # nrows为边界，不包括nrows
     elif ipc == 'A6' or ipc == 'B6' or ipc == 'B8':
         classes = ["制造业", "其他制造业", "其他制造业"]
     elif ipc == 'B0' or ipc == ('B2') :
-        classes = ["制造业", "通用设备制造", "其他设备制造"]
+        classes = ["制造业", "通用设备制造业", "其他设备制造"]
     elif ipc == 'B3' or  ipc == ('B4') :
         classes = ["制造业", "文教用品", "办公用品制造"]
     elif ipc == 'C0' or ipc == ('C1') or ipc == ('C2') or ipc == ('C3') :
