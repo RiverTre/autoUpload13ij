@@ -4,21 +4,21 @@ from telnetlib import EC
 import selenium
 from selenium import webdriver
 from bs4 import BeautifulSoup
-from selenium.common.exceptions import NoSuchElementException
+# from selenium.common.exceptions import NoSuchElementException
 import time
 import xlwt
-import xdrlib, sys
+# import xdrlib, sys
 import xlrd
-from selenium.webdriver.common.by import By
+# from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
-from selenium.webdriver.support import wait
+# from selenium.webdriver.support import wait
 from xlutils.copy import copy
 
 
 # 新建一个xls用来存数据
 excel = xlwt.Workbook(encoding='utf-8')  # 创建一个Excel
-sheet = excel.add_sheet('Sheet1')  # 在其中创建一个sheet
-path = 'C:\\data5.xls'    # 每次运行都要更改以避免覆盖上一轮数据
+sheet = excel.add_sheet('Sheet1')  # 在其中创建一个名为hello的sheet
+path = 'C:\\data6.xls'    # 每次运行都更改以避免覆盖上一轮数据
 excel.save(path)
 
 
@@ -31,10 +31,10 @@ time.sleep(5)
 driver.find_element_by_link_text(u"请登录").click()
 driver.find_element_by_id("j_username").click()
 driver.find_element_by_id("j_username").clear()
-driver.find_element_by_id("j_username").send_keys("111111")
+driver.find_element_by_id("j_username").send_keys("11111111")
 driver.find_element_by_id("j_password_show").click()
 driver.find_element_by_id("j_password_show").clear()
-driver.find_element_by_id("j_password_show").send_keys("1111111")
+driver.find_element_by_id("j_password_show").send_keys("1111111111")
 driver.find_element_by_id("j_validation_code").click()
 validation = input("手动识别验证吧")
 driver.find_element_by_id("j_validation_code").clear()
@@ -55,7 +55,7 @@ driver.find_element_by_id("txt").clear()
 # 改变path，page之后可以重启爬虫
 # 在哪一页中断就从哪一页开始
 # page = 917
-page = 1859
+page = 2213
 # page = 1832
 
 js="var q=document.documentElement.scrollTop=10000"
@@ -78,12 +78,23 @@ while total < 70000:
     new_workbook = copy(workbook)  # 将xlrd对象拷贝转化为xlwt对象
     new_worksheet = new_workbook.get_sheet(0)  # 获取转化后工作簿中的第一个表格
     for i in range(12):
+
+        count = 1
         # 爬取一个页面的内容
         html = driver.page_source
         soup = BeautifulSoup(html)
         # 专利名
         items_b = soup.find_all('b', attrs={'style': "color: #4B4B4B"})
-        item_b = items_b[i]
+        try:
+            item_b = items_b[i]
+        except:
+            i=i-1
+            time.sleep(1)
+            print("items_b may be empty")
+            count = count + 1
+            if count > 15:
+                break
+            continue
         # print(item_b.text)
         # 公开号
         items_number = soup.find_all('a', attrs={'class': "btn btn-operation", 'role': "lawState"})
