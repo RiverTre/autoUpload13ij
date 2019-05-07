@@ -7,15 +7,15 @@
 大范围使用了Firefox下的插件Katalon Recorder. 能够对浏览器操作进行录制导出为python2代码。建议客制化调试时使用本插件。
 
 
-主程序为upload_test.py  PatentSpider.py
+主程序为upload.py  PatentSpider.py  ShenHe.py 上架还没写。其他的可以参考
 autoit的exe下载安装好，火狐装好，火狐webdriver的zip下载解压好，代码里需要的包装好。
-把代码的execute_path改成刚才解压的位置。用autoit打开.au3改成自己存图片的位置，then 重新convert成exe，教程打开autoit的页面可以看到。
+（每个）代码的execute_path改成刚才解压的位置。用autoit打开.au3改成自己存图片的位置，then 重新convert成exe，教程打开autoit的页面可以看到。
 上传代码里把autoIt相关的exe地址改成自己的exe存放地址。
 各个代码里的用户名密码改成自己的。
 上传代码里有一句写了注释，要改成自己的logo对应的数，找到217，改成自己的数字，比如第一个logo就是1第二个就是2第六个就是6。
-
-
-
+数据清洗用到left()right()两个公式。注意把公式结果在原位置复制粘贴成值。注意最后要把没有数据的行删除一遍，CTRL+shift＋↓向下选择全部。
+摘要有奇怪字符，left(),数值参数为一百，例如=left(D1,100)。把摘要粘到word，带格式粘贴，处理完带格式粘贴回来，教程http://www.exceltip.net/thread-54253-1-1.html。
+按照项目的样例对照自己处理的正误。
 
 
 
