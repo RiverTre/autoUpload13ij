@@ -8,6 +8,7 @@
 
 
 主程序为upload.py  PatentSpider.py  ShenHe.py 上架还没写。其他的可以参考
+PatentSpider.py里把电子科技大学都改成自己的大学名
 autoit的exe下载安装好，火狐装好，火狐webdriver的zip下载解压好，代码里需要的包装好。
 （每个）代码的execute_path改成刚才解压的位置。用autoit打开.au3改成自己存图片的位置，then 重新convert成exe，教程打开autoit的页面可以看到。
 上传代码里把autoIt相关的exe地址改成自己的exe存放地址。
