@@ -1,7 +1,14 @@
 # autoUpload13ij
 针对智慧专利港湾商家管理后台自动上传图片以及专利信息
+
 需要火狐浏览器，以及火狐浏览器对应的webdriver
 
+关于配置python环境，方法之一是
+1 登录python官网，下载python解释器解压,选最新的3.7就可以
+https://www.python.org/downloads/windows/
+可以用anaconda替代python解释器，anaconda包含它
+2 then搜索Pycharm,下载该IDE使用
+https://www.jetbrains.com/pycharm/download/#section=windows//免费版就能用，付费版可以用教育邮箱申请license
 
 
 大范围使用了Firefox下的插件Katalon Recorder. 能够对浏览器操作进行录制导出为python2代码。建议客制化调试时使用本插件。
@@ -35,3 +42,5 @@ autoit的exe下载安装好，火狐装好，火狐webdriver的zip下载解压�
 
 autoit的exe文件要根据运行环境电脑上四张图片存储的位置，更改.au3文件里1.jpg等的位置，重新convert。软件包已经上传，教程详见exe以及.au3的描述内网址，即下述网址。代码已经完成，只需修改1.jpg等图片的路径后重新convert
 //referred    https://blog.csdn.net/cigo_2018/article/details/83892304
+
+
