@@ -7,7 +7,14 @@
 大范围使用了Firefox下的插件Katalon Recorder. 能够对浏览器操作进行录制导出为python2代码。建议客制化调试时使用本插件。
 
 
-主程序为upload.py  PatentSpider.py  ShenHe.py 上架还没写。其他的可以参考
+主程序为upload.py  PatentSpider.py  ShenHe.py TianJiaRuKu.py(添加入库)  TiJiaoZuHe.py（提交组合）  ShenHeZuHe.py(审核组合) ShangJia.py(点击上架)
+若有bug,欢迎一起完善。ShangJia.py基本没问题，因为不给我发验证码短信了，暂时没法调试
+
+
+
+
+
+
 PatentSpider.py里把电子科技大学都改成自己的大学名
 autoit的exe下载安装好，火狐装好，火狐webdriver的zip下载解压好，代码里需要的包装好。
 （每个）代码的execute_path改成刚才解压的位置。用autoit打开.au3改成自己存图片的位置，then 重新convert成exe，教程打开autoit的页面可以看到。
