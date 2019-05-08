@@ -1,12 +1,18 @@
 # -*- coding: utf-8 -*-
-# import selenium
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.remote.webelement import WebElement
-from selenium.webdriver.support.ui import Select
-import unittest, time, re
+import time
 
-driver = webdriver.Firefox(executable_path = 'I:\Downloads\geckodriver-v0.24.0-win64\geckodriver.exe')
+# 审核商品
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
+
+# option_path="user-data-dir=D:\\Users\\yuehan\\AppData\\Local\\Google\\Chrome\\User Data"
+# option = Options()
+# option.add_argument(option_path)
+# driver = webdriver.Chrome(executable_path="I:\Downloads\chromedriver_win32\\chromedriver.exe", chrome_options=option)
+
+driver = webdriver.Firefox(executable_path='I:\Downloads\geckodriver-v0.24.0-win64\geckodriver.exe')
 driver.get("http://patentadmin.13ij.net/")
 # html = driver.page_source
 # # html.send_keys(Keys.chord(Keys.CONTROL, Keys.SUBTRACT))
@@ -36,35 +42,33 @@ driver.maximize_window()
 # num = 0.8
 # js = "document.body.style.zoom='%s';" % num
 # driver.execute_script(js)
+driver.refresh()
+driver.find_element_by_link_text(u"商品管理").click()
+
+element1 = WebDriverWait(driver, 100, 0.5).until(expected_conditions.presence_of_element_located((By.LINK_TEXT,
+                                                                                                  "公共商品"))
+)
+element1.click()
+element2 = WebDriverWait(driver, 100, 0.5).until(
+    expected_conditions.presence_of_element_located((By.XPATH,
+                                                     "//iframe[contains(@src,'/goods/goods/list.iframe')]"))
+)
+
+driver.switch_to.frame(driver.find_element_by_xpath("//iframe[contains(@src,'/goods/goods/list.iframe')]"))
 
 count=0
 while i < 1000:
-    # # driver.switch_to.frame(1)
-    # driver.find_element_by_link_text(u"确认审核").click()
-    # time.sleep(0.5)
-    # driver.find_element_by_link_text(u"确定").click()
-    # time.sleep(0.5)
 
-    # # ERROR: Caught exception [ERROR: Unsupported command [selectFrame | index=1 | ]]
-    try:
+    time.sleep(1)
+    element3 = WebDriverWait(driver, 100, 0.5).until(
+        expected_conditions.presence_of_element_located((By.XPATH,
+                                                        u"(.//*[normalize-space(text()) and normalize-space("
+                                                        u".)='创建时间'])[1]/following::i[3]"))
+    )
+    element3.click()
 
-        driver.refresh()
-        driver.find_element_by_link_text(u"商品管理").click()
-        time.sleep(1)
-        driver.find_element_by_link_text(u"公共商品").click()
-        time.sleep(1)
-        driver.switch_to.frame(driver.find_element_by_xpath("//iframe[contains(@src,'/goods/goods/list.iframe')]"))
-
-        time.sleep(1)
-        driver.find_element_by_xpath(
-            u"(.//*[normalize-space(text()) and normalize-space(.)='创建时间'])[1]/following::i[3]").click()
-        driver.find_element_by_xpath(
-            u"(.//*[normalize-space(text()) and normalize-space(.)='搜索'])[1]/following::button[1]").click()
-        driver.find_element_by_link_text(u"确定").click()
-    except:
-        time.sleep(0.5)
-        print(str(i))
-        count = count+1
-        if count > 10:
-            break
-        continue
+    driver.find_element_by_xpath(
+        u"(.//*[normalize-space(text()) and normalize-space(.)='搜索'])[1]/following::button[1]").click()
+    element4 = WebDriverWait(driver, 10, 0.5).until(expected_conditions.presence_of_element_located((By.LINK_TEXT, u"确定")))
+    # ec方法是两参数的，所以最后的By....要打括号作为一个参数输入
+    element4.click()
