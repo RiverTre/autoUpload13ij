@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# 打开excel调用单元格
 import  xdrlib ,sys
 import xlrd
 
