@@ -27,8 +27,8 @@ while gogogo:
 
     driver.find_element_by_xpath(
         u"(.//*[normalize-space(text()) and normalize-space(.)='商品机构：'])[1]/following::i[1]").click()
-
-    # 数好自己的logo是第多少个，电子科技大学是217，把下面这个217替换成自己的数字
+    
+    # 点击“商品机构”后在网页下拉列表里数好自己的logo是第多少个，电子科技大学是217，把下面这个217替换成自己的数字
     driver.find_element_by_xpath(
         u"(.//*[normalize-space(text()) and normalize-space(.)='三级分类：'])[1]/following::span[217]").click()
     time.sleep(2)
